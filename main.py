@@ -13,11 +13,11 @@ if choice == "20":
     num1 = random.randint(1,20)
     num2 = random.randint(1,20)
     adv = input("Do you have advantage? ")
-    if adv == "yes":
+    if adv == "yes" or adv == "Yes":
         output = "You rolled a (" + str(num1) + " and a " + str(num2) +"). Leaving you with " + str(max(num1,num2))
     else:
         adv = input("Do you have disadvantage? ")
-        if adv == "yes":
+        if adv == "yes" or adv == "Yes":
             output = "You rolled a (" + str(num1) + " and a " + str(num2) +"). Leaving you with " + str(min(num1,num2))
         else:
             output = "You rolled a " + str(num1)
