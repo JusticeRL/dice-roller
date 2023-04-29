@@ -24,8 +24,7 @@ while choice != "exit" and choice != "Exit":
                 output = "You rolled a " + str(num1)
     else:
         rolls = input("How many dice would you like to roll? ")
-        i = 0
-        while i < int(rolls):
+        for i in range(int(rolls)):
             num1 = random.randint(1,int(choice))
             if i == 0:
                 num2 = str(num1) + ", "
@@ -33,8 +32,11 @@ while choice != "exit" and choice != "Exit":
                 num2 = num2 + str(num1) + ", "
             else:
                 num2 = num2 + "and " +str(num1)
-            i += 1
-        output = "Your rolls are (" + num2 + ")"
 
+        output = "Your rolls are (" + num2 + ")"
+    
+    print()
     print(output)
+    print()
     choice = input("If you want to roll again, press enter. Otherwise, type 'exit' ")
+    print()
