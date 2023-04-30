@@ -1,22 +1,46 @@
-import random
-from scripts import *
+import scripts
+import time
 
-
-output = 0
 choice = 0
 rolls = 0
 adv = "no"
 
-while choice != "exit" and choice != "Exit":
+while choice != "exit":
+    output = 0
+    
     choice = input("Which die would you like to roll? ")
+    try:
+        temp = int(choice)
+    except ValueError:
+        if choice == "exit":
+            print()
+            time.sleep(0.05)
+            print("Goodbye.")
+            print()
+            time.sleep(0.05)
+            continue
+        else:
+            print()
+            print("...")
+            time.sleep(.75)
+            print("...")
+            time.sleep(.75)
+            print("...")
+            time.sleep(.75)
+            print("That is not a number, please try again.")
+            print()
+            continue
 
     if choice == "20":
-        output = getadv()
+        output = scripts.getadv()
     else:
-        output = getrolls(choice)
+        output = scripts.getrolls(choice)
     
-    print()
-    print(output)
-    print()
-    choice = input("Type 'exit' to quit. Otherwise, press enter: ")
+    if output != 0:
+       print()
+       print(output)
+       print()
+    else:
+        pass
+    choice = input("Type 'exit' to quit. Otherwise, press enter: ").lower()
     print()

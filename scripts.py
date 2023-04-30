@@ -1,16 +1,23 @@
 import random
+import time
 
 def getrolls(choice):
-    rolls = input("How many would you like to roll? ")
+    while True:
+        try: 
+            rolls = int(input("How many would you like to roll? "))
+        except ValueError:
+            time.sleep(0.1)
+            print("That is not a number. Try again.")
+            continue
+        break
+
     if rolls == "1":
         num1 = random.randint(1,int(choice))
         num2 = "Your roll is " + str(num1)
     else:
+        num2 = "Your rolls are ("
         for index in range(int(rolls)):
-            if index == 0:
-                num1 = random.randint(1,int(choice))
-                num2 = "Your rolls are (" + str(num1) +", "
-            elif 0<index<int(rolls)-1:
+            if index<int(rolls)-1:
                 num1 = random.randint(1,int(choice))
                 num2 = num2 + str(num1) + ", "
             elif index == int(rolls)-1:
@@ -23,17 +30,16 @@ def getrolls(choice):
 def getadv():
     num1 = random.randint(1,20)
     num2 = random.randint(1,20)
-    adv = input("Do you have advantage or disadvantage? ")
-    if adv == "advantage":
-        result = "Your rolls is " + str(max(num1,num2)) + " (" + str(num1) + "," + str(num2) + ")"
-        return result
-    elif adv == "disadvantage":
-        result = "Your roll is " + str(min(num1,num2)) + " (" + str(num1) + "," + str(num2) + ")"
-        return result
-    elif adv == "no":
-        result = "Your roll is " + str(num1)
-        return 
-    else:
-        print("I dont understand that answe...")
-        print()
-        getadv()
+    while True:
+        adv = input("Do you have advantage or disadvantage? ")
+        if adv == "advantage":
+            return "Your rolls are " + str(max(num1,num2)) + " (" + str(num1) + "," + str(num2) + ")"
+        elif adv == "disadvantage":
+            return "Your rolls are " + str(min(num1,num2)) + " (" + str(num1) + "," + str(num2) + ")"
+        elif adv == "no":
+            return "Your roll is " + str(num1)
+        else:
+            print("I dont understand that answer...")
+            print()
+        
+        
