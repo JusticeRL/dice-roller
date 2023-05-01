@@ -13,7 +13,7 @@ while True:
         break
     
     try:
-        temp = int(choice)
+        choice = int(choice)
     except ValueError:
         print()
         print(".",end=" ")
@@ -27,12 +27,14 @@ while True:
         print()
         continue
 
-    if choice == "20":
+    if choice == 20:
         output = scripts.getadv()
     else:
         output = scripts.getrolls(choice)
     
-    if output != 0:
+    if output == "exit":
+        break
+    elif output != 0:
        print()
        print(output)
        print()
