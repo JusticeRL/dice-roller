@@ -24,7 +24,7 @@ def getrolls(choice):
                 num1 = random.randint(1,int(choice))
                 num2 = num2 + "and " + str(num1) + ")"
             else:
-                print("Something went wrong...")
+                print("***Something went wrong***")
     return num2
 
 def getadv():
